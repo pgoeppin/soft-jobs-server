@@ -11,4 +11,8 @@ const userRegister = async (req, res) => {
   }
 };
 
+const showUser = async (req, res) => {
+    
+}
+
 module.exports = { userRegister };
