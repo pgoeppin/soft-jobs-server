@@ -13,6 +13,7 @@ const validateToken = async (tokenLocal, res) => {
                 return payload
             }
         )
+        return validate
     } catch (e) {
         return showError(res, e)
     }

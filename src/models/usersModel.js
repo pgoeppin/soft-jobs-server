@@ -1,9 +1,9 @@
 const pool = require("../database/connDB").pool
 const bcrypt = require("bcryptjs")
 
-const getUser = async (user) => {
+const getUser = async (email) => {
     const query = "SELECT * FROM usuarios WHERE email = $1"
-    const values = [user.email]
+    const values = [email]
     const result = await pool.query(query, values)
     const rowCount = result.rowCount;
     if(!rowCount) throw {
