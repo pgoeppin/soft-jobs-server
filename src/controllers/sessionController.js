@@ -1,6 +1,7 @@
 const { getUser } = require("../models/usersModel");
 const bcrypt = require("bcryptjs");
 const { getJwtToken } = require("../helpers/createToken");
+const { showError } = require("../helpers/showError");
 
 const loginUser = async (req, res) => {
   const userSearched = req.body;
@@ -33,9 +34,8 @@ const loginUser = async (req, res) => {
         });
       }
     }
-  } catch (error) {
-    console.log(error);
-    res.status(error.code || 500).send(error);
+  } catch (e) {
+    showError(res, e);
   }
 };
 
